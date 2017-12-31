@@ -13,16 +13,16 @@ class Movie(models.Model):
 
 
 class Review(models.Model):
-    RATING_CHOICES = (
-	    (1, '1'),
-	    (2, '2'),
-	    (3, '3'),
-	    (4, '4'),
-	    (5, '5'),
+	RATING_CHOICES = (
+		(1, '1'),
+		(2, '2'),
+		(3, '3'),
+		(4, '4'),
+		(5, '5'),
 	)
 
-	movie = models.ForeignKey(Movie)
-    pub_date = models.DateTimeField('date published')
-    user_name = models.CharField(max_length=100)
-    comment = models.CharField(max_length=200)
-    rating = models.IntegerField(choices=RATING_CHOICES)
+	movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+	pub_date = models.DateTimeField('date published')
+	user_name = models.CharField(max_length=100)
+	comment = models.CharField(max_length=200)
+	rating = models.IntegerField(choices=RATING_CHOICES)
